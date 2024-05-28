@@ -1,0 +1,62 @@
+@keyframes slide-left {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-right {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-slide-left {
+    animation: slide-left 0.5s ease-in-out;
+  }
+  
+  .animate-slide-right {
+    animation: slide-right 0.5s ease-in-out;
+  }
+
+  .timeline-connector {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    z-index: 10;
+  }
+  
+  /* Style the dotted line */
+  .timeline-connector::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(transparent 50%, white 50%);
+    background-size: 100% 10px;
+  }
+  
+  /* Adjust the position of the dotted line for left timeline */
+  .left-timeline .timeline-connector::after {
+    background-position: top;
+  }
+  
+  /* Adjust the position of the dotted line for right timeline */
+  .right-timeline .timeline-connector::after {
+    background-position: bottom;
+  }
